@@ -1,0 +1,15 @@
+.PHONE: image clean
+
+VERSION_MAJOR=0
+VERSION_MINOR=8
+VERSION_COUNT=1
+
+PROJECT_NAME=locust
+
+VERSION_TAG=$(PROJECT_NAME):$(VERSION_MAJOR).$(VERSION_MINOR).$(VERSION_COUNT)
+
+image: 
+	docker build -t $(VERSION_TAG) .
+
+clean:
+	docker images -a | grep ${VERSION_TAG)
